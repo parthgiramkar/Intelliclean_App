@@ -1,0 +1,18 @@
+# Data Handling & Core Logic
+pandas
+numpy
+scikit-learn
+
+# Data Profiling
+ydata-profiling
+
+# Backend API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Frontend UI
+streamlit
+
+# For making API requests (if separating frontend/backend)
+requests
