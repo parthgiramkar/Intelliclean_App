@@ -7,9 +7,7 @@ import io
 import plotly.express as px
 from streamlit_pandas_profiling import st_profile_report
 
-# ===================================================================
-#  Function Definitions
-# ===================================================================
+
 def handling_missing(df, i, cleaned_list, alert_list):
     coln_name = i.column_name
     if coln_name not in df.columns: return
@@ -40,10 +38,8 @@ def handling_duplicates(df, i, cleaned_list):
     dup = i.values['n_duplicates']
     df.drop_duplicates(inplace=True)
     cleaned_list.append(f"• Removed {dup} duplicate rows.")
-
-# ===================================================================
-#  Main Analysis & Cleaning Pipeline Function
-# ===================================================================
+    
+# Main Engine
 def main_pipeline(df):
     df_copy = df.copy()
     cleaned_list = []
@@ -110,10 +106,8 @@ def main_pipeline(df):
                     transform_candidates.append(col)
     
     return df, df_copy, cleaned_list, correlation_report, transform_candidates, high_cooreln
-
-# ===================================================================
-#  Streamlit User Interface
-# ===================================================================
+    
+# Streamlit UI 
 st.set_page_config(layout="wide")
 st.title("📊 IntelliClean: Automated Data Cleaning & EDA Tool")
 
@@ -208,7 +202,7 @@ if st.session_state.step == "view_results":
                 selected_cat_col = st.selectbox("Select a CATEGORICAL column for Bar Charts:", options=[""] + common_categorical_cols, key="cat_select")
 
             if selected_num_col:
-                # NEW: Add a spinner for loading feedback
+                #  Added a spinner 
                 with st.spinner(f"Generating charts for '{selected_num_col}'..."):
                     st.subheader(f"Distribution of '{selected_num_col}'")
                     c1, c2 = st.columns(2)
@@ -220,7 +214,7 @@ if st.session_state.step == "view_results":
                         st.plotly_chart(fig_after, use_container_width=True)
             
             if selected_cat_col:
-                # NEW: Add a spinner for loading feedback
+                
                 with st.spinner(f"Generating charts for '{selected_cat_col}'..."):
                     st.subheader(f"Value Counts of '{selected_cat_col}'")
                     unique_count = st.session_state.df_original[selected_cat_col].nunique()
@@ -254,13 +248,13 @@ if st.session_state.step == "view_results":
     with st.expander("🔍 Click to view the detailed Interactive EDA Report"):
         eda_tab1, eda_tab2 = st.tabs(["📊 After Cleaning", "📄 Before Cleaning"])
         with eda_tab1:
-            # NEW: Add a spinner for loading feedback
+           
             with st.spinner("Generating 'After Cleaning' report... Please wait."):
                 report_config = {"title": "Cleaned Data Profile", "html": {"style": {"theme": "flatly", "show_powered_by": False}}}
                 cleaned_profile = ProfileReport(st.session_state.df_cleaned, **report_config)
                 st_profile_report(cleaned_profile)
         with eda_tab2:
-            # NEW: Add a spinner for loading feedback
+
             with st.spinner("Generating 'Before Cleaning' report... Please wait."):
                 report_config = {"title": "Original Data Profile", "html": {"style": {"theme": "flatly", "show_powered_by": False}}}
                 original_profile = ProfileReport(st.session_state.df_original, **report_config)
