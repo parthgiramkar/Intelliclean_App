@@ -29,7 +29,6 @@ Intelliclean provides a robust pipeline for cleaning and understanding your data
 #### Interactive Visualizations & Reports
 * **"Before & After" Plots:** Instantly visualize the impact of cleaning operations with side-by-side distribution plots for any numeric or categorical column.
 * **Full EDA Report:** Generates a comprehensive and interactive EDA report for both the original and the cleaned dataframes, powered by `ydata-profiling`.
-* **Correlation Summary:** Displays a list of highly correlated columns identified during the analysis.
 
 ####  Data Export
 * **Download Cleaned Data:** Easily download the final, cleaned dataset as a **CSV** or **JSON** file.
