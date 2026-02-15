@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 plotly
-ydata-profiling==4.6.4
-streamlit-pandas-profiling==0.1.3
-setuptools>=65.5.0
+ydata-profiling==4.18.1
+streamlit-pandas-profiling
