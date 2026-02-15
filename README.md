@@ -6,7 +6,7 @@ Intelliclean is an interactive web application built with **Streamlit** that aut
 
 ---
 
-## 🚀 Features
+##  Features
 
 Intelliclean provides a robust pipeline for cleaning and understanding your data, combining automated actions with essential user controls.
 
