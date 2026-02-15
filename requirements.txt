@@ -4,4 +4,4 @@ numpy
 plotly
 ydata-profiling==4.18.1
 streamlit-pandas-profiling
-setuptools
+setuptools==69.5.1
