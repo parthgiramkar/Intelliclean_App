@@ -1,4 +1,4 @@
-# Intelliclean: Automated Data Cleaning & EDA Tool 📊
+# Intelliclean: Automated Data Cleaning & EDA Tool
 
 Intelliclean is an interactive web application built with **Streamlit** that automates tedious steps of data cleaning and exploratory data analysis. Upload your dataset, configure the cleaning options and get a clean dataset and a comprehensive EDA report in minutes.
 
